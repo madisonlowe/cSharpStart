@@ -87,3 +87,41 @@ Console.WriteLine(c / d);
 
 // Above code shows greater precision of decimal type.
 // The M symbol indicates that a constant should use decimal type. Otherwise, compiler assumes double.
+
+// Branch and loop statements.
+
+int intA = 5;
+int intB = 3;
+
+if (intA + intB > 10) // Can use multiple checks with && and || etc.
+{
+    Console.WriteLine($"{intA} plus {intB} is greater than 10.");
+}
+else 
+{
+    Console.WriteLine($"{intA} plus {intB} is not greater than 10.");
+}
+
+for(int counter = 0; counter < 10; counter++) // Eg. for(let i = 0; i < x.length; i++) in JS.
+{
+  Console.WriteLine($"Hello World! The counter is {counter}");
+}
+
+// Nested loops.
+for (int row = 1; row < 11; row++)
+{
+    for (char column = 'a'; column < 'k'; column++)
+    {
+        Console.WriteLine($"The cell is ({row}, {column})");
+    }
+}
+
+int total = 0;
+for (int count = 1; count < 21; count++)
+{
+    if (count % 3 == 0)
+    {
+        total += count;
+    }
+}
+Console.WriteLine(total);
