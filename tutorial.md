@@ -125,3 +125,67 @@ for (int count = 1; count < 21; count++)
     }
 }
 Console.WriteLine(total);
+
+// Generic list type.
+
+var names = new List<string> { "Madison", "Ana", "Felipe" };
+foreach (var name in names)
+{
+  Console.WriteLine($"Hello {name.ToUpper()}!");
+}
+
+// Above uses the List<T> type. Stores sequences of elements: you specify the type between the angle brackets.
+// List<T> can grow or shrink. Below code appends some names and removes others.
+
+Console.WriteLine();
+names.Add("Maria");
+names.Add("Bill");
+names.Remove("Ana");
+foreach (var name in names)
+{
+  Console.WriteLine($"Hello {name.ToUpper()}!");
+}
+
+// You can access values in the list by their index.
+
+Console.WriteLine($"My name is {names[0]}.");
+Console.WriteLine($"I've added {names[2]} and {names[3]} to the list.");
+
+// You can check the amount of things in the list with the .Count property, eg. names.Count.
+// In C#, indices start at 0, so the largest valid index is one less than the number of items in the list.
+
+// Searching and sorting lists:
+// The IndexOf method searches for an item and returns the index of the item. 
+// If the item isn't in the list, IndexOf returns -1. 
+
+var index = names.IndexOf("Felipe");
+if (index != -1)
+  Console.WriteLine($"The name {names[index]} is at index {index}");
+
+var notFound = names.IndexOf("Not Found");
+Console.WriteLine($"When an item is not found, IndexOf returns {notFound}");
+
+// The items in your list can be sorted as well. 
+// The Sort method sorts all the items in the list in their normal order (alphabetically for strings). 
+
+names.Sort();
+foreach (var name in names)
+{
+  Console.WriteLine($"Hello {name.ToUpper()}!");
+}
+
+// You can also declare lists of other types.
+
+var fibonacciNumbers = new List<int> {1, 1}; // Integer list.
+
+while (fibonacciNumbers.Count < 20) // While inside first 20 iterations of fibonacciNumbers...
+{
+    var previous = fibonacciNumbers[fibonacciNumbers.Count - 1];
+    var previous2 = fibonacciNumbers[fibonacciNumbers.Count - 2]; 
+
+    fibonacciNumbers.Add(previous + previous2);
+}
+foreach(var item in fibonacciNumbers)
+    Console.WriteLine(item);
+
+// Final 'Introduction to C#' interactive tutorial!
