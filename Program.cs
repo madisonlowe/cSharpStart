@@ -6,6 +6,7 @@
 // 'Console' is a class on the System namespace. Can use 'Console.WriteLine' as shorthand for 'System.Console.WriteLine' as we've accessed System.
 
 using System;
+using System.Text.RegularExpressions;
 class Hello 
 {
     static void Main()
@@ -13,7 +14,11 @@ class Hello
         Console.WriteLine("Enter username:");
         string username = Console.ReadLine();
 
-        while (string.IsNullOrEmpty(username))
+        // string pattern = @"[a-zA-Z]";
+        // Regex regex = new Regex(pattern);
+        // CONDITION(?): Regex.IsMatch(username, regex)
+
+        while (string.IsNullOrEmpty(username) || !username.All(Char.IsLetter)) // Apparently this check quicker than RegEx?
         {
             Console.WriteLine("Please enter a valid username!");
             Console.WriteLine("Enter username:");
