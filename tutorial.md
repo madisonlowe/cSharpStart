@@ -1,7 +1,7 @@
 // Hello C#
 // See: https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/
 
-string greeting = "     Hello World!      ";
+string greeting = " Hello World! ";
 string startTrimmed = greeting.TrimStart();
 string endTrimmed = greeting.TrimEnd();
 string smartTrimmed = greeting.Trim();
@@ -27,7 +27,7 @@ Console.WriteLine(songLyrics.Contains("greetings"));
 Console.WriteLine(songLyrics.StartsWith("You"));
 Console.WriteLine(songLyrics.EndsWith("greetings"));
 
-// Numbers in C# 
+// Numbers in C#
 
 // Order of operations is consistent with maths rules.
 // Can use all usual mathematical operands.
@@ -95,7 +95,7 @@ int intB = 3;
 
 if (intA + intB > 10) // Can use multiple checks with && and || etc.
 {
-    Console.WriteLine($"{intA} plus {intB} is greater than 10.");
+Console.WriteLine($"{intA} plus {intB} is greater than 10.");
 }
 else 
 {
@@ -104,25 +104,25 @@ else
 
 for(int counter = 0; counter < 10; counter++) // Eg. for(let i = 0; i < x.length; i++) in JS.
 {
-  Console.WriteLine($"Hello World! The counter is {counter}");
+Console.WriteLine($"Hello World! The counter is {counter}");
 }
 
 // Nested loops.
 for (int row = 1; row < 11; row++)
 {
-    for (char column = 'a'; column < 'k'; column++)
-    {
-        Console.WriteLine($"The cell is ({row}, {column})");
-    }
+for (char column = 'a'; column < 'k'; column++)
+{
+Console.WriteLine($"The cell is ({row}, {column})");
+}
 }
 
 int total = 0;
 for (int count = 1; count < 21; count++)
 {
-    if (count % 3 == 0)
-    {
-        total += count;
-    }
+if (count % 3 == 0)
+{
+total += count;
+}
 }
 Console.WriteLine(total);
 
@@ -131,7 +131,7 @@ Console.WriteLine(total);
 var names = new List<string> { "Madison", "Ana", "Felipe" };
 foreach (var name in names)
 {
-  Console.WriteLine($"Hello {name.ToUpper()}!");
+Console.WriteLine($"Hello {name.ToUpper()}!");
 }
 
 // Above uses the List<T> type. Stores sequences of elements: you specify the type between the angle brackets.
@@ -143,7 +143,7 @@ names.Add("Bill");
 names.Remove("Ana");
 foreach (var name in names)
 {
-  Console.WriteLine($"Hello {name.ToUpper()}!");
+Console.WriteLine($"Hello {name.ToUpper()}!");
 }
 
 // You can access values in the list by their index.
@@ -155,23 +155,23 @@ Console.WriteLine($"I've added {names[2]} and {names[3]} to the list.");
 // In C#, indices start at 0, so the largest valid index is one less than the number of items in the list.
 
 // Searching and sorting lists:
-// The IndexOf method searches for an item and returns the index of the item. 
-// If the item isn't in the list, IndexOf returns -1. 
+// The IndexOf method searches for an item and returns the index of the item.
+// If the item isn't in the list, IndexOf returns -1.
 
 var index = names.IndexOf("Felipe");
 if (index != -1)
-  Console.WriteLine($"The name {names[index]} is at index {index}");
+Console.WriteLine($"The name {names[index]} is at index {index}");
 
 var notFound = names.IndexOf("Not Found");
 Console.WriteLine($"When an item is not found, IndexOf returns {notFound}");
 
-// The items in your list can be sorted as well. 
-// The Sort method sorts all the items in the list in their normal order (alphabetically for strings). 
+// The items in your list can be sorted as well.
+// The Sort method sorts all the items in the list in their normal order (alphabetically for strings).
 
 names.Sort();
 foreach (var name in names)
 {
-  Console.WriteLine($"Hello {name.ToUpper()}!");
+Console.WriteLine($"Hello {name.ToUpper()}!");
 }
 
 // You can also declare lists of other types.
@@ -180,12 +180,13 @@ var fibonacciNumbers = new List<int> {1, 1}; // Integer list.
 
 while (fibonacciNumbers.Count < 20) // While inside first 20 iterations of fibonacciNumbers...
 {
-    var previous = fibonacciNumbers[fibonacciNumbers.Count - 1];
-    var previous2 = fibonacciNumbers[fibonacciNumbers.Count - 2]; 
+var previous = fibonacciNumbers[fibonacciNumbers.Count - 1];
+var previous2 = fibonacciNumbers[fibonacciNumbers.Count - 2];
 
     fibonacciNumbers.Add(previous + previous2);
+
 }
 foreach(var item in fibonacciNumbers)
-    Console.WriteLine(item);
+Console.WriteLine(item);
 
 // Final 'Introduction to C#' interactive tutorial!
