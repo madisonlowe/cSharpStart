@@ -1,3 +1,4 @@
+```cs
 // Hello C#
 // See: https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/
 
@@ -97,7 +98,7 @@ if (intA + intB > 10) // Can use multiple checks with && and || etc.
 {
 Console.WriteLine($"{intA} plus {intB} is greater than 10.");
 }
-else 
+else
 {
     Console.WriteLine($"{intA} plus {intB} is not greater than 10.");
 }
@@ -190,3 +191,4 @@ foreach(var item in fibonacciNumbers)
 Console.WriteLine(item);
 
 // Final 'Introduction to C#' interactive tutorial!
+```

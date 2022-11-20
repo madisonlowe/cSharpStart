@@ -1,4 +1,5 @@
-using System; 
+```cs
+using System;
 // A 'using' directive that references the 'System' namespace.
 // 'Console' is a class on the System namespace.
 class Hello // Class of 'Hello'.
@@ -8,3 +9,4 @@ class Hello // Class of 'Hello'.
         Console.WriteLine("Hello World!"); // Programme output.
     } // Programme can use 'Console.WriteLine' as shorthand for 'System.Console.WriteLine' as we've accessed System.
 }
+```
