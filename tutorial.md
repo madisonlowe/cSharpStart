@@ -1,7 +1,8 @@
 ```cs
-// Hello C#
+// These are notes and code from the 'Hello C#' exercises from Microsoft Learn.
 // See: https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/
 
+// Strings in C#.
 string greeting = " Hello World! ";
 string startTrimmed = greeting.TrimStart();
 string endTrimmed = greeting.TrimEnd();
@@ -11,6 +12,7 @@ Console.WriteLine($"[{greeting}]");
 Console.WriteLine($"[{startTrimmed}]");
 Console.WriteLine($"[{endTrimmed}]");
 Console.WriteLine($"[{smartTrimmed}]");
+// Run the WriteLines to see differences in how Trim string methods work.
 
 string sayHello = "Hello World!";
 Console.WriteLine(sayHello);
@@ -19,16 +21,18 @@ Console.WriteLine(sayHello);
 
 Console.WriteLine(sayHello.ToUpper());
 Console.WriteLine(sayHello.ToLower());
+// Can case specific characters by selecting them with another method first.
 
 string songLyrics = "You say goodbye, and I say hello";
 
 Console.WriteLine(songLyrics.Contains("goodbye"));
 Console.WriteLine(songLyrics.Contains("greetings"));
 // Above returns boolean check. Sensitive to punctuation.
+
 Console.WriteLine(songLyrics.StartsWith("You"));
 Console.WriteLine(songLyrics.EndsWith("greetings"));
 
-// Numbers in C#
+// Numbers in C#.
 
 // Order of operations is consistent with maths rules.
 // Can use all usual mathematical operands.
@@ -190,5 +194,5 @@ var previous2 = fibonacciNumbers[fibonacciNumbers.Count - 2];
 foreach(var item in fibonacciNumbers)
 Console.WriteLine(item);
 
-// Final 'Introduction to C#' interactive tutorial!
+// Final 'Introduction to C#' interactive tutorial complete!
 ```
