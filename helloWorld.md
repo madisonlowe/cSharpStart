@@ -1,3 +1,5 @@
+Hello World programme for C# with notes:
+
 ```cs
 using System;
 // A 'using' directive that references the 'System' namespace.
