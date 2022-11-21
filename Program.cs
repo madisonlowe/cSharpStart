@@ -11,6 +11,8 @@ class Hello
 {
     static void Main()
     {
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Enter username:");
         string username = Console.ReadLine();
 
@@ -29,5 +31,11 @@ class Hello
     } 
 }
 
+/*
+TODO:
+- Move tracker.
+- If loops: if player types
+- Figure out RegEx.
+*/
 
 
