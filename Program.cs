@@ -24,7 +24,33 @@ class RockPaperScissors
     static void Main()
     {
         string username = SetUsername();
-        Console.WriteLine($"The username has been set as {username}");
+        string playerMove;
+        
+        Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
+        var chosenKey = Console.ReadLine();
+
+        switch (chosenKey)
+        {
+            case "R":
+            playerMove = "R";
+            Console.WriteLine("R was pressed.");
+            break;
+            case "P":
+            playerMove = "P";
+            Console.WriteLine("P was pressed.");
+            break;
+            case "S":
+            playerMove = "S";
+            Console.WriteLine("S was pressed.");
+            break;
+            default:
+            Console.WriteLine("Enter a valid key!");
+            break;
+        }
+
+        Random rnd = new Random();
+        int computerMove = rnd.Next(1, 4);
+        Console.WriteLine(computerMove);
     } 
 }
 
