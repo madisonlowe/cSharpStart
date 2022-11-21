@@ -21,8 +21,55 @@ class RockPaperScissors
         return username;
     }
 
-    public static string SetComputerMove()
+    // public static string SetComputerMove()
+    // {
+    //     string computerMove;
+    //     Random rnd = new Random();
+    //     int randomNumber = rnd.Next(1, 4);
+
+    //     switch (randomNumber)
+    //     {
+    //         case 1:
+    //         return computerMove = "R";
+    //         case 2:
+    //         return computerMove = "P";
+    //         case 3:
+    //         return computerMove = "S";
+    //         default:
+    //         return computerMove = "Error";
+    //     }
+    // }
+
+    // public static string SetPlayerMove()
+    // {
+    //     string playerMove;
+        
+    //     Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
+    //     var chosenKey = Console.ReadLine();
+
+    //     switch (chosenKey)
+    //     {
+    //         case "R":
+    //         Console.WriteLine("R was pressed.");
+    //         return playerMove = "R";
+    //         case "P":
+    //         Console.WriteLine("P was pressed.");
+    //         return playerMove = "P";
+    //         case "S":
+    //         Console.WriteLine("S was pressed.");
+    //         return playerMove = "S";
+    //         default:
+    //         return playerMove = "Error";
+    //         // default:
+    //         // Console.WriteLine("Enter a valid key!");
+    //         // break;
+    //     }
+    // }
+
+    static void Main()
     {
+        SetUsername();
+
         string computerMove;
         Random rnd = new Random();
         int randomNumber = rnd.Next(1, 4);
@@ -30,18 +77,19 @@ class RockPaperScissors
         switch (randomNumber)
         {
             case 1:
-            return computerMove = "R";
+            computerMove = "R";
+            break;
             case 2:
-            return computerMove = "P";
+            computerMove = "P";
+            break;
             case 3:
-            return computerMove = "S";
+            computerMove = "S";
+            break;
             default:
-            return computerMove = "Error";
+            computerMove = "Error";
+            break;
         }
-    }
 
-    public static string SetPlayerMove()
-    {
         string playerMove;
         
         Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
@@ -51,30 +99,35 @@ class RockPaperScissors
         {
             case "R":
             Console.WriteLine("R was pressed.");
-            return playerMove = "R";
+            playerMove = "R";
+            break;
             case "P":
             Console.WriteLine("P was pressed.");
-            return playerMove = "P";
+            playerMove = "P";
+            break;
             case "S":
             Console.WriteLine("S was pressed.");
-            return playerMove = "S";
+            playerMove = "S";
+            break;
             default:
-            return playerMove = "Error";
+            playerMove = "Error";
+            break;
             // default:
             // Console.WriteLine("Enter a valid key!");
             // break;
         }
-    }
 
-    static void Main()
-    {
-        string username = SetUsername();
-        string playerMove = SetPlayerMove();
-        string computerMove = SetComputerMove();
-
-        switch ((playerMove, computerMove))
+        if (!string.IsNullOrEmpty(playerMove) && !string.IsNullOrEmpty(computerMove)) // Apparently this check quicker than RegEx?
         {
-            case (playerMove == computerMove):
+            switch ((playerMove, computerMove))
+        {
+            case ("R", "R"):
+            Console.WriteLine("Draw!");
+            break;
+            case ("p", "P"):
+            Console.WriteLine("Draw!");
+            break;
+            case ("s", "s"):
             Console.WriteLine("Draw!");
             break;
             case ("R", "P"):
@@ -98,6 +151,7 @@ class RockPaperScissors
             default:
             Console.WriteLine("Error!");
             break;
+        }
         }
     } 
 }
