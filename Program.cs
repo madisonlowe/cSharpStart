@@ -1,41 +1,47 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-// A 'using' directive references the 'System' namespace.
-// Class of 'Hello'.
-// Method of 'Main' on class 'Hello'. Static method Main is conventional entry point to C# programmes.
-// 'Console' is a class on the System namespace. Can use 'Console.WriteLine' as shorthand for 'System.Console.WriteLine' as we've accessed System.
-
 using System;
-using System.Text.RegularExpressions;
-class Hello 
+// using System.Text.RegularExpressions;
+class RockPaperScissors 
 {
-    static void Main()
+    public static string SetUsername()
     {
-        Console.BackgroundColor = ConsoleColor.Black;
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Enter username:");
-        string username = Console.ReadLine();
-
         // string pattern = @"[a-zA-Z]";
         // Regex regex = new Regex(pattern);
         // CONDITION(?): Regex.IsMatch(username, regex)
-
+        Console.WriteLine("Enter username:");
+        string username = Console.ReadLine();
         while (string.IsNullOrEmpty(username) || !username.All(Char.IsLetter)) // Apparently this check quicker than RegEx?
         {
             Console.WriteLine("Please enter a valid username!");
             Console.WriteLine("Enter username:");
             username = Console.ReadLine();
         }
-
         Console.WriteLine($"Hello {username[0].ToString().ToUpper() + username.Substring(1)}!");
+        return username;
+    }
+
+    static void Main()
+    {
+        string username = SetUsername();
+        Console.WriteLine($"The username has been set as {username}");
     } 
 }
 
 /*
 TODO:
 - Move tracker.
-- If loops: if player types
+- If loops: if player types rock, paper or scissors, log this and roll the computer move
 - Figure out RegEx.
 */
 
+/*
+while (!Console.KeyAvailable)
+{
+    Console.Beep();
+}
+NOTE: Can't use Beep() on my Mac? Googled and doesn't seem to have proper support.
+*/
 
+// Console.BackgroundColor = ConsoleColor.Black;
+// Console.ForegroundColor = ConsoleColor.Green;
