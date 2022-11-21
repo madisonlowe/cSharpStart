@@ -26,6 +26,7 @@ class RockPaperScissors
         string computerMove;
         Random rnd = new Random();
         int randomNumber = rnd.Next(1, 4);
+
         switch (randomNumber)
         {
             case 1:
@@ -34,6 +35,8 @@ class RockPaperScissors
             return computerMove = "P";
             case 3:
             return computerMove = "S";
+            default:
+            return computerMove = "Error";
         }
     }
 
@@ -55,6 +58,8 @@ class RockPaperScissors
             case "S":
             Console.WriteLine("S was pressed.");
             return playerMove = "S";
+            default:
+            return playerMove = "Error";
             // default:
             // Console.WriteLine("Enter a valid key!");
             // break;
@@ -89,6 +94,9 @@ class RockPaperScissors
             break;
             case ("S", "P"):
             Console.WriteLine("Player wins!");
+            break;
+            default:
+            Console.WriteLine("Error!");
             break;
         }
     } 
