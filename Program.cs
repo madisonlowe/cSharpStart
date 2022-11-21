@@ -21,9 +21,24 @@ class RockPaperScissors
         return username;
     }
 
-    static void Main()
+    public static string SetComputerMove()
     {
-        string username = SetUsername();
+        string computerMove;
+        Random rnd = new Random();
+        int randomNumber = rnd.Next(1, 4);
+        switch (randomNumber)
+        {
+            case 1:
+            return computerMove = "R";
+            case 2:
+            return computerMove = "P";
+            case 3:
+            return computerMove = "S";
+        }
+    }
+
+    public static string SetPlayerMove()
+    {
         string playerMove;
         
         Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
@@ -32,25 +47,50 @@ class RockPaperScissors
         switch (chosenKey)
         {
             case "R":
-            playerMove = "R";
             Console.WriteLine("R was pressed.");
-            break;
+            return playerMove = "R";
             case "P":
-            playerMove = "P";
             Console.WriteLine("P was pressed.");
-            break;
+            return playerMove = "P";
             case "S":
-            playerMove = "S";
             Console.WriteLine("S was pressed.");
+            return playerMove = "S";
+            // default:
+            // Console.WriteLine("Enter a valid key!");
+            // break;
+        }
+    }
+
+    static void Main()
+    {
+        string username = SetUsername();
+        string playerMove = SetPlayerMove();
+        string computerMove = SetComputerMove();
+
+        switch ((playerMove, computerMove))
+        {
+            case (playerMove == computerMove):
+            Console.WriteLine("Draw!");
             break;
-            default:
-            Console.WriteLine("Enter a valid key!");
+            case ("R", "P"):
+            Console.WriteLine("Computer wins!");
+            break;
+            case ("R", "S"):
+            Console.WriteLine("Player wins!");
+            break;
+            case ("P", "S"):
+            Console.WriteLine("Computer wins!");
+            break;
+            case ("P", "R"):
+            Console.WriteLine("Player wins!");
+            break;
+            case ("S", "R"):
+            Console.WriteLine("Computer wins!");
+            break;
+            case ("S", "P"):
+            Console.WriteLine("Player wins!");
             break;
         }
-
-        Random rnd = new Random();
-        int computerMove = rnd.Next(1, 4);
-        Console.WriteLine(computerMove);
     } 
 }
 
