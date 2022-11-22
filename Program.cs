@@ -46,16 +46,12 @@ class RPS
         {
             case 1:
             return computerMove = "R";
-            break;
             case 2:
             return computerMove = "P";
-            break;
             case 3:
             return computerMove = "S";
-            break;
             default:
             return computerMove = "computerMove error!";
-            break;
         }
     }
 
@@ -70,16 +66,12 @@ class RPS
         {
             case "R":
             return playerMove = "R";
-            break;
             case "P":
             return playerMove = "P";
-            break;
             case "S":
             return playerMove = "S";
-            break;
             default:
             return playerMove = "playerMove error!";
-            break;
         }
     }
 
@@ -122,7 +114,7 @@ class RPS
 
     static void Main()
     {
-        // SetUsername();
+        SetUsername();
 
         bool wantsToPlay = true;
 
