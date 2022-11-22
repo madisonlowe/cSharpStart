@@ -2,7 +2,7 @@
 
 using System;
 // using System.Text.RegularExpressions;
-class RockPaperScissors 
+class RPS 
 {
     public static string SetUsername()
     {
@@ -21,55 +21,23 @@ class RockPaperScissors
         return username;
     }
 
-    // public static string SetComputerMove()
-    // {
-    //     string computerMove;
-    //     Random rnd = new Random();
-    //     int randomNumber = rnd.Next(1, 4);
-
-    //     switch (randomNumber)
-    //     {
-    //         case 1:
-    //         return computerMove = "R";
-    //         case 2:
-    //         return computerMove = "P";
-    //         case 3:
-    //         return computerMove = "S";
-    //         default:
-    //         return computerMove = "Error";
-    //     }
-    // }
-
-    // public static string SetPlayerMove()
-    // {
-    //     string playerMove;
-        
-    //     Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
-    //     var chosenKey = Console.ReadLine();
-
-    //     switch (chosenKey)
-    //     {
-    //         case "R":
-    //         Console.WriteLine("R was pressed.");
-    //         return playerMove = "R";
-    //         case "P":
-    //         Console.WriteLine("P was pressed.");
-    //         return playerMove = "P";
-    //         case "S":
-    //         Console.WriteLine("S was pressed.");
-    //         return playerMove = "S";
-    //         default:
-    //         return playerMove = "Error";
-    //         // default:
-    //         // Console.WriteLine("Enter a valid key!");
-    //         // break;
-    //     }
-    // }
-
-    static void Main()
+    public static bool SetWantsToPlay()
     {
-        SetUsername();
+        bool wantsToPlay;
+        Console.WriteLine("Do you want to play again? Please type true or false.");
+        string answer = Console.ReadLine();
+        if (answer == "true")
+        {
+            return wantsToPlay = true;
+        }
+        else
+        {
+            return wantsToPlay = false;
+        }
+    }
 
+    public static string SetComputerMove()
+    {
         string computerMove;
         Random rnd = new Random();
         int randomNumber = rnd.Next(1, 4);
@@ -77,19 +45,22 @@ class RockPaperScissors
         switch (randomNumber)
         {
             case 1:
-            computerMove = "R";
+            return computerMove = "R";
             break;
             case 2:
-            computerMove = "P";
+            return computerMove = "P";
             break;
             case 3:
-            computerMove = "S";
+            return computerMove = "S";
             break;
             default:
-            computerMove = "Error";
+            return computerMove = "computerMove error!";
             break;
         }
+    }
 
+    public static string SetPlayerMove()
+    {
         string playerMove;
         
         Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
@@ -98,69 +69,82 @@ class RockPaperScissors
         switch (chosenKey)
         {
             case "R":
-            Console.WriteLine("R was pressed.");
-            playerMove = "R";
+            return playerMove = "R";
             break;
             case "P":
-            Console.WriteLine("P was pressed.");
-            playerMove = "P";
+            return playerMove = "P";
             break;
             case "S":
-            Console.WriteLine("S was pressed.");
-            playerMove = "S";
+            return playerMove = "S";
             break;
             default:
-            playerMove = "Error";
+            return playerMove = "playerMove error!";
             break;
-            // default:
-            // Console.WriteLine("Enter a valid key!");
-            // break;
         }
+    }
 
-        if (!string.IsNullOrEmpty(playerMove) && !string.IsNullOrEmpty(computerMove)) // Apparently this check quicker than RegEx?
-        {
-            switch ((playerMove, computerMove))
+    public static void MoveCalculator(ref string playerMove, ref string computerMove)
+    {
+        switch ((playerMove, computerMove))
         {
             case ("R", "R"):
-            Console.WriteLine("Draw!");
+            Console.WriteLine("Draw! You and Computer selected Rock.");
             break;
-            case ("p", "P"):
-            Console.WriteLine("Draw!");
+            case ("P", "P"):
+            Console.WriteLine("Draw! You and Computer selected Paper");
             break;
-            case ("s", "s"):
-            Console.WriteLine("Draw!");
+            case ("S", "S"):
+            Console.WriteLine("Draw! You and Computer selected Scissors.");
             break;
             case ("R", "P"):
-            Console.WriteLine("Computer wins!");
+            Console.WriteLine("Computer wins! You selected Rock, Computer selected Paper.");
             break;
             case ("R", "S"):
-            Console.WriteLine("Player wins!");
+            Console.WriteLine("Player wins! You selected Rock, Computer selected Scissors.");
             break;
             case ("P", "S"):
-            Console.WriteLine("Computer wins!");
+            Console.WriteLine("Computer wins! You selected Paper, Computer selected Scissors.");
             break;
             case ("P", "R"):
-            Console.WriteLine("Player wins!");
+            Console.WriteLine("Player wins! You selected Paper, Computer selected Rock.");
             break;
             case ("S", "R"):
-            Console.WriteLine("Computer wins!");
+            Console.WriteLine("Computer wins! You selected Scissors, Computer selected Rock.");
             break;
             case ("S", "P"):
-            Console.WriteLine("Player wins!");
+            Console.WriteLine("Player wins! You selected Scissors, Computer selected Paper.");
             break;
             default:
-            Console.WriteLine("Error!");
+            Console.WriteLine("computerMove error!");
             break;
         }
+    }
+
+    static void Main()
+    {
+        // SetUsername();
+
+        bool wantsToPlay = true;
+
+        while (wantsToPlay)
+        {
+            string computerMove = SetComputerMove();
+            string playerMove = SetPlayerMove();
+            // Apparently below check quicker than RegEx?
+            if (!string.IsNullOrEmpty(playerMove) && !string.IsNullOrEmpty(computerMove))
+            {
+                MoveCalculator(ref playerMove, ref computerMove);
+            }
+            wantsToPlay = SetWantsToPlay();
         }
     } 
 }
 
 /*
 TODO:
-- Move tracker.
-- If loops: if player types rock, paper or scissors, log this and roll the computer move
 - Figure out RegEx.
+- Add a 'Would you like to play again?' loop.
+- Add a counter.
 */
 
 /*
