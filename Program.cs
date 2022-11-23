@@ -9,36 +9,34 @@ class RPS
         // string pattern = @"[a-zA-Z]";
         // Regex regex = new Regex(pattern);
         // CONDITION(?): Regex.IsMatch(username, regex)
-        Console.WriteLine("Enter username:");
-        string username = Console.ReadLine();
+        Console.WriteLine("Who's playing?");
+        string? username = Console.ReadLine();
         while (string.IsNullOrEmpty(username) || !username.All(Char.IsLetter)) // Apparently this check quicker than RegEx?
         {
-            Console.WriteLine("Please enter a valid username!");
-            Console.WriteLine("Enter username:");
+            Console.WriteLine("Try again! No spaces or numbers!");
             username = Console.ReadLine();
         }
         Console.WriteLine($"Hello {username[0].ToString().ToUpper() + username.Substring(1)}!");
         return username;
     }
 
-    public static bool SetWantsToPlay()
+    public static bool SetWantsToPlay(ref bool wantsToPlay)
     {
-        bool wantsToPlay;
         Console.WriteLine("Do you want to play again? Please type true or false.");
-        string answer = Console.ReadLine();
+        string? answer = Console.ReadLine();
         if (answer == "true")
         {
             return wantsToPlay = true;
         }
         else
         {
+            Console.WriteLine("Thanks for playing!");
             return wantsToPlay = false;
         }
     }
 
-    public static string SetComputerMove()
+    public static string SetComputerMove(ref string computerMove)
     {
-        string computerMove;
         Random rnd = new Random();
         int randomNumber = rnd.Next(1, 4);
 
@@ -55,10 +53,8 @@ class RPS
         }
     }
 
-    public static string SetPlayerMove()
+    public static string SetPlayerMove(ref string playerMove)
     {
-        string playerMove;
-        
         Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
         var chosenKey = Console.ReadLine();
 
@@ -117,17 +113,19 @@ class RPS
         SetUsername();
 
         bool wantsToPlay = true;
+        string computerMove = "";
+        string playerMove = "";
 
         while (wantsToPlay)
         {
-            string computerMove = SetComputerMove();
-            string playerMove = SetPlayerMove();
+            SetComputerMove(ref computerMove);
+            SetPlayerMove(ref playerMove);
             // Apparently below check quicker than RegEx?
             if (!string.IsNullOrEmpty(playerMove) && !string.IsNullOrEmpty(computerMove))
             {
                 MoveCalculator(ref playerMove, ref computerMove);
             }
-            wantsToPlay = SetWantsToPlay();
+            wantsToPlay = SetWantsToPlay(ref wantsToPlay);
         }
     } 
 }
@@ -135,17 +133,11 @@ class RPS
 /*
 TODO:
 - Figure out RegEx.
-- Add a 'Would you like to play again?' loop.
 - Add a counter.
-*/
-
-/*
-while (!Console.KeyAvailable)
-{
-    Console.Beep();
-}
-NOTE: Can't use Beep() on my Mac? Googled and doesn't seem to have proper support.
+- Google OOP - definitely making some wild choices here.
+- https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/classes?source=recommendations
 */
 
 // Console.BackgroundColor = ConsoleColor.Black;
 // Console.ForegroundColor = ConsoleColor.Green;
+// Can't use Beep() on Mac?
