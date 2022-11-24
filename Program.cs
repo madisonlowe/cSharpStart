@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System;
+
 // using System.Text.RegularExpressions;
 class RPS 
 {
@@ -9,22 +10,22 @@ class RPS
         // string pattern = @"[a-zA-Z]";
         // Regex regex = new Regex(pattern);
         // CONDITION(?): Regex.IsMatch(username, regex)
-        Console.WriteLine("Who's playing?");
+        Console.WriteLine("Who is playing?");
         string? username = Console.ReadLine();
         while (string.IsNullOrEmpty(username) || !username.All(Char.IsLetter)) // Apparently this check quicker than RegEx?
         {
             Console.WriteLine("Try again! No spaces or numbers!");
             username = Console.ReadLine();
         }
-        Console.WriteLine($"Hello {username[0].ToString().ToUpper() + username.Substring(1)}!");
+        Console.WriteLine($"Hello {username[0].ToString().ToUpper() + username.Substring(1)}!\nType a number to make a selection.");
         return username;
     }
 
     public static bool SetWantsToPlay(ref bool wantsToPlay)
     {
-        Console.WriteLine("Do you want to play again? Please type true or false.");
+        Console.WriteLine("Do you want to play again?\n1. True.     2. False.");
         string? answer = Console.ReadLine();
-        if (answer == "true")
+        if (answer == "1")
         {
             return wantsToPlay = true;
         }
@@ -55,16 +56,16 @@ class RPS
 
     public static string SetPlayerMove(ref string playerMove)
     {
-        Console.WriteLine("Rock, paper, or scissors? Please type R, P, or S.");
+        Console.WriteLine("Your move!\n1. Rock.     2. Paper.     3. Scissors.");
         var chosenKey = Console.ReadLine();
 
         switch (chosenKey)
         {
-            case "R":
+            case "1":
             return playerMove = "R";
-            case "P":
+            case "2":
             return playerMove = "P";
-            case "S":
+            case "3":
             return playerMove = "S";
             default:
             return playerMove = "playerMove error!";
@@ -76,31 +77,31 @@ class RPS
         switch ((playerMove, computerMove))
         {
             case ("R", "R"):
-            Console.WriteLine("Draw! You and Computer selected Rock.");
+            Console.WriteLine("Draw!\nYou and Computer selected Rock.");
             break;
             case ("P", "P"):
-            Console.WriteLine("Draw! You and Computer selected Paper");
+            Console.WriteLine("Draw!\nYou and Computer selected Paper");
             break;
             case ("S", "S"):
-            Console.WriteLine("Draw! You and Computer selected Scissors.");
+            Console.WriteLine("Draw!\nYou and Computer selected Scissors.");
             break;
             case ("R", "P"):
-            Console.WriteLine("Computer wins! You selected Rock, Computer selected Paper.");
+            Console.WriteLine("Computer wins!\nYou selected Rock, Computer selected Paper.");
             break;
             case ("R", "S"):
-            Console.WriteLine("Player wins! You selected Rock, Computer selected Scissors.");
+            Console.WriteLine("Player wins!\nYou selected Rock, Computer selected Scissors.");
             break;
             case ("P", "S"):
-            Console.WriteLine("Computer wins! You selected Paper, Computer selected Scissors.");
+            Console.WriteLine("Computer wins!\nYou selected Paper, Computer selected Scissors.");
             break;
             case ("P", "R"):
-            Console.WriteLine("Player wins! You selected Paper, Computer selected Rock.");
+            Console.WriteLine("Player wins!\nYou selected Paper, Computer selected Rock.");
             break;
             case ("S", "R"):
-            Console.WriteLine("Computer wins! You selected Scissors, Computer selected Rock.");
+            Console.WriteLine("Computer wins!\nYou selected Scissors, Computer selected Rock.");
             break;
             case ("S", "P"):
-            Console.WriteLine("Player wins! You selected Scissors, Computer selected Paper.");
+            Console.WriteLine("Player wins!\nYou selected Scissors, Computer selected Paper.");
             break;
             default:
             Console.WriteLine("computerMove error!");
