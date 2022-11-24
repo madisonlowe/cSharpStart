@@ -23,7 +23,7 @@ class RPS
 
     public static bool SetWantsToPlay(ref bool wantsToPlay)
     {
-        Console.WriteLine("Do you want to play again?\n1. True.     2. False.");
+        Console.WriteLine("Do you want to play again?\n1. True.\t2. False.");
         string? answer = Console.ReadLine();
         if (answer == "1")
         {
@@ -56,7 +56,7 @@ class RPS
 
     public static string SetPlayerMove(ref string playerMove)
     {
-        Console.WriteLine("Your move!\n1. Rock.     2. Paper.     3. Scissors.");
+        Console.WriteLine("Your move!\n1. Rock.\t2. Paper.\t3. Scissors.");
         var chosenKey = Console.ReadLine();
 
         switch (chosenKey)
