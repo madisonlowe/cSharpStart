@@ -153,6 +153,8 @@ class GlazerCalc
 
 ## Notes
 
+### Chapter One
+
 **1.1.2 Hardware and Software**
 
 - Pg 3. "The Operating System makes the machine usable. It looks after all the information held on the computer and provides lots of commands to allow you to manage things. It also lets you run programs, ones you have written and ones from other people."
@@ -191,6 +193,8 @@ class GlazerCalc
   - Think about syntax same way you think about grammatical structure, maybe try and learn it the same way too? Process of pattern learning and pattern matching, contains knowledge in its structure. Do they do books on programming grammar?
 
 _See: First example. Pg. 14, 2.1.1._
+
+### Chapter Two
 
 **2.2 Manipulating Data**
 
@@ -373,3 +377,90 @@ for ( item = 1 ; item < Total_Items ; item=item+1 )
         ....
 }
 ```
+
+_See: Third Example. Pg. 44, Complete Glazing Program._
+
+**2.3.4 Operator Shorthand**
+
+- Pg. 45. "One of the really funky things about C# is that all statements return a value, which you can use in another statement if you like. [...] Consider the following: `i = (j=0)` This is perfectly legal (and perhaps even sensible) C#. It has the effect of setting both i and j to 0. An assignment statement always returns the value which is being assigned (i.e. the bit on the right of the gozzinta). This value can then be used as a value or operand. If you do this you are advised to put brackets around the statement which is being used as a value, this makes the whole thing much clearer for both you and the compiler!"
+- Pg. 45. "`i++` means 'Give me the value before the increment'."
+- Pg. 45. "`++i` Means 'Give me the value after the increment'."
+- Pg. 45. "As an example [where `i = (j=0)`]: `int i = 2, j; j = ++i;` would make j equal to 3. The other special operators, += etc. all return the value after the operator has been performed.
+
+**2.3.5 Neater Printing**
+
+Using placeholders in print strings:
+
+```cs
+// Code:
+int i = 150 ;
+double f = 1234.56789 ;
+Console.WriteLine ( "i: {0} f: {1}", i, f ) ;
+Console.WriteLine ( "i: {1} f: {0}", f, i ) ;
+
+// Print out:
+i: 150 f: 1234.56789
+i: 150 f: 1234.56789
+```
+
+- Pg. 46. "A placeholder just marks the place where the value is to be printed. [...] The {n} part of the string says “parameter number n, counting from 0”. In the second write statement I have swapped the order of the numbers, but since I've swapped the order of the parameters too the output is the same."
+
+Adjusting real number precision:
+
+```cs
+// Code:
+int i = 150 ;
+double f = 1234.56789 ;
+Console.WriteLine ( "i: {0:0} f: {1:0.00}", i, f ) ;
+
+// Print out:
+i: 150 f: 1234.57
+```
+
+- Pg. 46. "Placeholders can have formatting information added to them [...] The `0` characters stand for one or more digits. When placed after a decimal point they can be used to control the number of decimal places which are used to express a value. Note that doing this means that if the number is an integer it is printed out as `12.00`."
+
+Specifying the number of printed digits:
+
+```cs
+// Code:
+int i = 150 ;
+double f = 1234.56789 ;
+Console.WriteLine ( "i: {0:0000} f: {1:00000.00}", i, f );
+
+// Print out:
+i: 0150 f: 01234.57
+```
+
+- Pg. 46. "I can specify a particular number of digits by putting in a given number of zeroes [...] Note that if I do this I get leading zeroes printed out, which is useful if you are printing things like cheques."
+
+Formatting:
+
+```cs
+// Code:
+int i = 150 ;
+double f = 1234.56789 ;
+Console.WriteLine ( "i: {0:#,##0} f: {1:##,##0.00}", i, f );
+
+// Print out:
+i: 150 f: 1,234.57
+```
+
+- Pg. 46-7. "If you want really fancy levels of control you can use the # character. A # in the format string means 'put a digit here if you have one' [...] I have used the # character to get my thousands printed out with commas [...] Note that the formatter only uses the # characters and commas that it needs. The value 150 does not have a thousands digit so it and the comma are left out. Note also though that I have included a 0 as the smallest digit. This is so that when I print the value 0 I actually get a value printed, otherwise when I print zero I get nothing on the page."
+
+Printing in columns:
+
+```cs
+// Code:
+int i = 150 ;
+double f = 1234.56789 ;
+Console.WriteLine ( "i: {0,10:0} f: {1,15:0.00}", i, f ) ;
+Console.WriteLine ( "i: {0,10:0} f: {1,15:0.00}", 0, 0 ) ;
+
+// Print out:
+i:        150 f:         1234.57
+i:          0 f:            0.00
+```
+
+- Pg. 47. "Finally I can add a width value to the print layout information. This is very useful if you want to print material in columns [...] The integer value is printed in a column 10 characters wide, and the double is printed in a 15 character wide column. At the moment the output is right justified, if I want the numbers left justified I make the width negative [`i: {0,-10:0}` as an example] [...] Note that this justification would work even if you were printing a string rather than a number, so if you want to print columns of words you can use this technique to do it. You can specify the print width of any item, even a piece of text, which makes printing in columns very easy."
+
+### Chapter Three
