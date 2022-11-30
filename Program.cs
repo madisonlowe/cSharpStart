@@ -27,7 +27,7 @@ class RPS
         string? answer = Console.ReadLine();
         if (answer == "1")
         {
-            return wantsToPlay = true;
+            return wantsToPlay = true; // Conventionally, camel case for variables.
         }
         else
         {
@@ -80,7 +80,7 @@ class RPS
             Console.WriteLine("Draw!\nYou and Computer selected Rock.");
             break;
             case ("P", "P"):
-            Console.WriteLine("Draw!\nYou and Computer selected Paper");
+            Console.WriteLine("Draw!\nYou and Computer selected Paper.");
             break;
             case ("S", "S"):
             Console.WriteLine("Draw!\nYou and Computer selected Scissors.");
@@ -142,3 +142,4 @@ TODO:
 // Console.BackgroundColor = ConsoleColor.Black;
 // Console.ForegroundColor = ConsoleColor.Green;
 // Can't use Beep() on Mac?
+
